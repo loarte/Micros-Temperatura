@@ -23,7 +23,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "i2c-lcd.h"
-#include "DHT.h"
+#include "DHT22.h"
 #include "math.h"
 
 #define NUMERO_LED 10
@@ -79,7 +79,7 @@ PINES PINES_LED[] = {{GPIOB,GPIO_PIN_14},{GPIOB,GPIO_PIN_15},{GPIOD,GPIO_PIN_8},
 						 {GPIOD,GPIO_PIN_9},{GPIOD,GPIO_PIN_10},{GPIOD,GPIO_PIN_11},
 						 {GPIOD,GPIO_PIN_12},{GPIOD,GPIO_PIN_13},{GPIOD,GPIO_PIN_14},
 						 {GPIOD,GPIO_PIN_15}};
-DHT_DataTypedef DHT11_Data; //Estructura para guardar la temperatura y humedad
+DHT_DataTypedef DHT22_Data; //Estructura para guardar la temperatura y humedad
 float Humedad; //Variable para guardar la humedad
 float Temperatura; //Variable para guardar la temperatura
 volatile int Seleccion_estado = 0; //Se emplea para cambiar el estado y seleccionar la temperatura que queremos
@@ -114,12 +114,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) // Genera una interr
   UNUSED(htim);
   /* NOTE : This function Should not be modified, when the callback is needed,
             the __HAL_TIM_PeriodElapsedCallback could be implemented in the user file */
-  //Obtencion de datos del sensor (observar la librería "DHT.h")
-	  DHT_GetData(&DHT11_Data);
+  //Obtencion de datos del sensor (observar la librería "DHT22.h")
+	  DHT_GetData(&DHT22_Data);
 
   //Asignación de variables globales de Temperatura y Humedad
-      Temperatura = DHT11_Data.Temperatura;
-	  Humedad = DHT11_Data.Humedad;
+      Temperatura = DHT22_Data.Temperatura;
+	  Humedad = DHT22_Data.Humedad;
 	}
 
 /* USER CODE END 0 */
@@ -139,10 +139,10 @@ int main(void)
 	int j = 1; //para usarlo en un bucle
 
 //Variables locales
-	//uint32_t tick_start; //guardará ek valor de HAL_GetTick()
-	//int t_espera = 2000; //el tiempo de espera en milisegundos (ms)
+	uint32_t tick_start; //guardará ek valor de HAL_GetTick()
+	int t_espera = 2000; //el tiempo de espera en milisegundos (ms)
 
-  /* USER CODE END 1 */
+	/* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -281,7 +281,7 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
@@ -312,7 +312,7 @@ static void MX_ADC1_Init(void)
   */
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
-  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.Resolution = ADC_RESOLUTION_8B;
   hadc1.Init.ScanConvMode = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
@@ -473,6 +473,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  //EXTI interrupt init
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 }
 
