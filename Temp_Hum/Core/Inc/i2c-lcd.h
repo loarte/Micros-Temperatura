@@ -14,6 +14,6 @@ void lcd_clear(void);  // funcion para la limpieza de toda la pantalla
 
 void lcd_clear_row (int row);  // funcion para la limpieza de una fila
 
-void Display_Rh(float Rh);  // funcion que muestra el valor Rh por pantalla, siempre en la fila 1
+void Display_HR(float HR);  // funcion que muestra el valor Rh por pantalla, siempre en la fila 1
 
 void Display_Temp(float Temp, int row);  // funcion que muestra el valor Temp por pantalla, tanto en la fila 0 y 1

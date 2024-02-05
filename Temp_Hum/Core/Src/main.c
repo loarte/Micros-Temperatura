@@ -23,7 +23,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "i2c-lcd.h"
-#include "DHT22.h"
+#include "DHT.h"
 #include "math.h"
 
 #define NUMERO_LED 10
@@ -79,7 +79,7 @@ PINES PINES_LED[] = {{GPIOB,GPIO_PIN_14},{GPIOB,GPIO_PIN_15},{GPIOD,GPIO_PIN_8},
 						 {GPIOD,GPIO_PIN_9},{GPIOD,GPIO_PIN_10},{GPIOD,GPIO_PIN_11},
 						 {GPIOD,GPIO_PIN_12},{GPIOD,GPIO_PIN_13},{GPIOD,GPIO_PIN_14},
 						 {GPIOD,GPIO_PIN_15}};
-DHT_DataTypedef DHT22_Data; //Estructura para guardar la temperatura y humedad
+DHT_DataTypedef DHT11_Data; //Estructura para guardar la temperatura y humedad
 float Humedad; //Variable para guardar la humedad
 float Temperatura; //Variable para guardar la temperatura
 volatile int Seleccion_estado = 0; //Se emplea para cambiar el estado y seleccionar la temperatura que queremos
@@ -115,11 +115,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) // Genera una interr
   /* NOTE : This function Should not be modified, when the callback is needed,
             the __HAL_TIM_PeriodElapsedCallback could be implemented in the user file */
   //Obtencion de datos del sensor (observar la librería "DHT22.h")
-	  DHT_GetData(&DHT22_Data);
+	  DHT_GetData(&DHT11_Data);
 
   //Asignación de variables globales de Temperatura y Humedad
-      Temperatura = DHT22_Data.Temperatura;
-	  Humedad = DHT22_Data.Humedad;
+      Temperatura = DHT11_Data.Temperatura;
+	  Humedad = DHT11_Data.Humedad;
 	}
 
 /* USER CODE END 0 */
@@ -139,8 +139,8 @@ int main(void)
 	int j = 1; //para usarlo en un bucle
 
 //Variables locales
-	uint32_t tick_start; //guardará ek valor de HAL_GetTick()
-	int t_espera = 2000; //el tiempo de espera en milisegundos (ms)
+	//uint32_t tick_start; //guardará ek valor de HAL_GetTick()
+	//int t_espera = 2000; //el tiempo de espera en milisegundos (ms)
 
 	/* USER CODE END 1 */
 
