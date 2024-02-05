@@ -1,0 +1,59 @@
+!SESSION 2024-02-01 09:53:54.118 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-01 09:54:32.379
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-01 09:54:32.754
+!MESSAGE Log4j initialized with config file D:\Carlos\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-01 09:54:37.207
+!MESSAGE Started RMI Server, listening on port 41338
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-01 09:58:33.053
+!MESSAGE Indexed 'Temp_Hum' (36 sources, 100 headers) in 8.14 sec: 7,684 declarations; 49,614 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0035%)
+!SESSION 2024-02-01 13:14:02.675 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  D:\MICROS\TRABAJO_SED_entrega\TRABAJO_SED_entrega\TRABAJO_SED\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 D:\MICROS\TRABAJO_SED_entrega\TRABAJO_SED_entrega\TRABAJO_SED\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-01 13:14:09.498
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-01 13:14:09.607
+!MESSAGE Log4j initialized with config file D:\Carlos\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-01 13:14:17.873
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-01 13:14:27.341
+!MESSAGE Indexed 'TRABAJO_SED' (28 sources, 120 headers) in 6,64 sec: 12.120 declarations; 66.688 references; 6 unresolved inclusions; 1.144 syntax errors; 1.590 unresolved names (2 %)
+!SESSION 2024-02-01 13:19:00.643 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  D:\Carlos\Temp_Hum\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 D:\Carlos\Temp_Hum\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-01 13:19:05.577
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-01 13:19:05.671
+!MESSAGE Log4j initialized with config file D:\Carlos\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-01 13:19:12.546
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-01 13:19:20.314
+!MESSAGE Indexed 'Temp_Hum' (28 sources, 119 headers) in 4,73 sec: 12.090 declarations; 69.081 references; 2 unresolved inclusions; 42 syntax errors; 151 unresolved names (0,19 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-01 13:19:31.423
+!MESSAGE Indexed 'TRABAJO_SED' (28 sources, 119 headers) in 2,48 sec: 12.110 declarations; 69.214 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0,18 %)
